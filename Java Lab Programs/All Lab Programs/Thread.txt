@@ -1,0 +1,107 @@
+import java.util.*;
+class Queue implements Runnable 
+{
+ int q[10];
+ int front,rear;
+ bool full,empty;
+ Queue()
+ {
+  int q[10] = new int[10];
+  int front = -1;
+  int rear = -1;
+  bool full = false;
+  bool empty = true;
+ }
+ void enqueue(int d)
+ {
+  if(full == false)
+  {
+   if(empty == true)
+   {
+    q[front] = d;
+    front = rear = 0;
+    empty = false;
+   }
+   else 
+   {
+    q[rear] = d;
+    rear++;
+   }
+  }
+  else
+  {
+   System.out.println("The Queue is Full !!");
+  }
+ }
+ int dequeue()
+ {
+  if(empty == false)
+  {
+   int dataout = q[front];
+   front++;
+  }
+  else
+  {
+   System.out.println("The Queue is Empty !!");
+  }
+  return dataout;
+ }
+ synchronized void get()
+ {
+  new Thread();
+  {
+   public void run()
+   {
+    Scanner input = new Scanner(System.in);
+    try
+    {
+     for(int i=0;i<10;i++)
+     {
+      System.out.println("Enqueue Operation /nEnter a Number to be Enqueued : ");
+      int d = input.nextInt();
+      enqueue(d);
+      Thread.sleep(1000);
+     }
+    }catch(Exception e){System.out.println("Caught..."+e);} 
+   }
+  }.start()
+ }
+ synchronized void put()
+ {
+  new Thread()
+  {
+   public void run()
+   {
+    try
+    {
+     for(int i=0;i<10;i++)
+     {
+      System.out.println("Dequeue Operation");
+      int dataout = dequeue();
+      System.out.println("The Popped Data : "+dataout);
+      Thread.sleep(1000);
+     }
+    }catch(Exception e){System.out.println("Caught..."+e);}
+   }
+  }.start();
+ }
+}
+class ThreadDemo
+{
+ public static void main(String args[])
+ {
+  Queue Q = new Queue();
+  Q.get();
+  Q.put();
+ }
+}
+   
+     
+ 
+      
+       
+ 
+ 
+ 
+ 
+ 
