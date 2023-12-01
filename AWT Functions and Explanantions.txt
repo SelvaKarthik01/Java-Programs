@@ -1,0 +1,14 @@
+DOS(Disk Operating System)  - Character use Interface (CUI)
+Windows Operating System and MAC - Graphical User Interface (GUI)
+
+-> Why we need GUI ?
+Just to have a better look and feel of Window Operating System or any Operating that we use. Each Operating System has its own Unique GUI. 
+
+
+All the Programs that we practised till now and we executed the Output in the CMD is considered as CUI - Characted Based Interface. 
+
+-> Different FrameWorks for Developing GUI :
+AWT - Abstract Window Interface (Outdated GUI)
+Swings - (Outdated GUI)
+JavaFX - Currently used GUI in Java
+
